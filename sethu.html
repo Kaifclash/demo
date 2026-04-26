@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>To My Beloved | A Special Proposal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(145deg, #1a0b1f 0%, #2d1a36 50%, #1e1025 100%);
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Floating romantic particles */
+    .floating-hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -50px;
+      background: rgba(255, 120, 160, 0.4);
+      width: 20px;
+      height: 20px;
+      transform: rotate(45deg);
+      animation: floatUp 8s infinite ease-in;
+      box-shadow: 0 0 12px rgba(255, 105, 180, 0.6);
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: inherit;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      top: 0;
+      left: -10px;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(-120vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    /* Main Card Container */
+    .proposal-card {
+      position: relative;
+      z-index: 10;
+      max-width: 750px;
+      width: 100%;
+      background: rgba(255, 248, 245, 0.96);
+      backdrop-filter: blur(2px);
+      border-radius: 68px 68px 72px 72px;
+      box-shadow: 0 35px 68px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 210, 210, 0.3), 0 0 0 8px rgba(255, 200, 220, 0.2);
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      animation: cardGlow 3s infinite alternate;
+    }
+
+    @keyframes cardGlow {
+      0% {
+        box-shadow: 0 35px 68px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 210, 210, 0.3), 0 0 0 8px rgba(255, 180, 200, 0.3);
+      }
+      100% {
+        box-shadow: 0 45px 80px rgba(0, 0, 0, 0.5), 0 0 0 2px rgba(255, 220, 220, 0.6), 0 0 0 14px rgba(255, 130, 180, 0.4);
+      }
+    }
+
+    /* Decorative top border */
+    .card-header {
+      background: linear-gradient(135deg, #f8c9d4, #f9a8ba);
+      height: 18px;
+      width: 100%;
+    }
+
+    /* Content area */
+    .content {
+      padding: 2.5rem 2.8rem 3rem;
+      text-align: center;
+    }
+
+    /* Romantic rose ornament */
+    .rose-icon {
+      font-size: 4rem;
+      filter: drop-shadow(0 8px 12px rgba(0,0,0,0.2));
+      display: inline-block;
+      margin-bottom: 0.5rem;
+      animation: gentleSway 4s infinite ease-in-out;
+    }
+
+    @keyframes gentleSway {
+      0%, 100% { transform: rotate(0deg) translateY(0); }
+      50% { transform: rotate(5deg) translateY(-5px); }
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      background: linear-gradient(120deg, #b83b5e, #d6718b, #a52a5a);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+      margin: 0.3rem 0 0.5rem;
+      font-weight: 700;
+      text-shadow: 2px 2px 12px rgba(0,0,0,0.05);
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      font-weight: 300;
+      color: #ae7e8b;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-top: 1px solid #ffcfdf;
+      border-bottom: 1px solid #ffcfdf;
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(4px);
+    }
+
+    .message {
+      font-size: 1.2rem;
+      line-height: 1.7;
+      color: #3c2a32;
+      margin: 2rem 0 1rem;
+      font-weight: 400;
+      background: rgba(255, 241, 235, 0.6);
+      padding: 1.5rem;
+      border-radius: 48px;
+      box-shadow: inset 0 1px 4px rgba(0,0,0,0.02), 0 4px 12px rgba(255,160,170,0.2);
+    }
+
+    .message p {
+      margin-bottom: 0.8rem;
+    }
+
+    .message .quote {
+      font-style: italic;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: #b13e62;
+    }
+
+    /* Beautiful name highlight */
+    .her-name {
+      font-size: 1.8rem;
+      font-weight: 600;
+      font-family: 'Playfair Display', serif;
+      background: linear-gradient(145deg, #c75c7a, #ff9eb5);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      display: inline-block;
+      margin: 0.3rem 0;
+    }
+
+    /* button container */
+    .actions {
+      margin: 2rem 0 1rem;
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.9rem 2.2rem;
+      font-size: 1.15rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 60px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    }
+
+    .btn-primary {
+      background: linear-gradient(115deg, #e86a92, #c22154);
+      color: white;
+      border: 1px solid rgba(255,255,210,0.5);
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.05);
+      background: linear-gradient(115deg, #f07da2, #d42d62);
+      box-shadow: 0 12px 24px rgba(200, 40, 90, 0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 230, 220, 0.9);
+      color: #b13e62;
+      backdrop-filter: blur(8px);
+      border: 1px solid #ffbfcf;
+    }
+
+    .btn-secondary:hover {
+      background: #ffe4ec;
+      transform: scale(1.02);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    /* Surprise message panel */
+    .surprise-box {
+      margin-top: 2rem;
+      padding: 1.2rem;
+      background: rgba(255, 245, 240, 0.9);
+      border-radius: 56px;
+      transition: all 0.5s;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transform: scale(0.95);
+      border: 1px solid #ffcfdf;
+    }
+
+    .surprise-box.show {
+      max-height: 380px;
+      opacity: 1;
+      transform: scale(1);
+      margin-top: 2rem;
+      padding: 1.7rem 1.5rem;
+    }
+
+    .surprise-content {
+      font-size: 1rem;
+      color: #6b3c4a;
+      line-height: 1.5;
+    }
+
+    .surprise-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: #c93f6b;
+      margin-bottom: 0.8rem;
+    }
+
+    .ring-emoji {
+      font-size: 2.8rem;
+      display: inline-block;
+      animation: sparkle 1.2s infinite alternate;
+    }
+
+    @keyframes sparkle {
+      0% { text-shadow: 0 0 0px gold; transform: scale(1);}
+      100% { text-shadow: 0 0 14px #ffb7c5; transform: scale(1.08);}
+    }
+
+    /* Countdown / promise */
+    .promise-date {
+      margin-top: 2.2rem;
+      font-size: 0.85rem;
+      color: #ad7e8b;
+      background: #fff0f0;
+      display: inline-block;
+      border-radius: 50px;
+      padding: 0.4rem 1.2rem;
+      font-weight: 400;
+    }
+
+    footer {
+      background: #fae7ed;
+      padding: 0.8rem;
+      text-align: center;
+      font-size: 0.7rem;
+      color: #ab7f8b;
+      letter-spacing: 0.5px;
+    }
+
+    /* Custom name input area for interactive naming */
+    .name-wish {
+      margin: 0.5rem 0 0;
+    }
+
+    .personal-touch {
+      font-size: 0.9rem;
+      background: #fff3f5;
+      display: inline-block;
+      border-radius: 30px;
+      padding: 0.25rem 1rem;
+    }
+
+    @media (max-width: 550px) {
+      .content {
+        padding: 1.8rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .message {
+        font-size: 1rem;
+        padding: 1rem;
+      }
+      .btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 1rem;
+      }
+    }
+
+    /* Cursor / interactive hearts */
+    .interactive-spark {
+      position: fixed;
+      width: 12px;
+      height: 12px;
+      background: radial-gradient(circle, #ff99bb, #ff4d6d);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      animation: fadeOut 0.8s forwards;
+    }
+
+    @keyframes fadeOut {
+      0% {
+        opacity: 0.9;
+        transform: scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(2.5);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="floating-hearts" id="heartContainer"></div>
+
+<div class="proposal-card" id="proposalCard">
+  <div class="card-header"></div>
+  <div class="content">
+    <div class="rose-icon">🌹✨</div>
+    <h1>Will You Be My Forever?</h1>
+    <div class="subtitle">A Love Story in the Making</div>
+
+    <div class="message">
+      <p>My Dearest <span class="her-name" id="displayName">My Love</span>,</p>
+      <p>Every heartbeat whispers your name, every sunrise reminds me of your smile. In a world full of fleeting moments, <strong>you</strong> are my timeless grace.</p>
+      <p class="quote">“Loving you has been the most beautiful journey of my soul.”</p>
+      <p>Today, with all the stars as my witness, I want to take the next step with you. To hold your hand through every season, and to build a universe of dreams together.</p>
+    </div>
+    
+    <!-- Personalize the proposal: let her feel special -->
+    <div class="personal-touch">
+      💕 For my beautiful soulmate 💕
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-primary" id="yesBtn">💖 Yes, A Thousand Times 💖</button>
+      <button class="btn btn-secondary" id="surpriseBtn">✨ A Little Surprise ✨</button>
+    </div>
+
+    <!-- hidden surprise panel -->
+    <div class="surprise-box" id="surprisePanel">
+      <div class="surprise-content">
+        <span class="ring-emoji">💍💌</span>
+        <h3>A Promise from my Heart</h3>
+        <p>Every day I fall in love with the little things about you — your laugh, your kindness, the way you light up my world. I've imagined this moment a thousand times, and my answer will always be the same: <strong>You are my everything</strong>.</p>
+        <p>Let's write our fairytale, chapter by chapter. I'll be your biggest supporter, your best friend, and the one who will cherish you endlessly. 💫</p>
+        <div style="font-size: 1.25rem; margin-top: 12px;">🌙 ☆  🌷  ☆  ☁️</div>
+      </div>
+    </div>
+
+    <div class="promise-date" id="datePromise">
+      ✧ With all my love, today & always ✧
+    </div>
+  </div>
+  <footer>
+    ⋆｡°✩ every love story is beautiful, but ours is my favorite ✩°｡⋆
+  </footer>
+</div>
+
+<script>
+  // ---- Create multiple floating hearts animation ----
+  function createHeart() {
+    const heartContainer = document.getElementById('heartContainer');
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    const size = Math.random() * 24 + 10; // 10px to 34px
+    heart.style.width = `${size}px`;
+    heart.style.height = `${size}px`;
+    heart.style.left = `${Math.random() * 100}%`;
+    heart.style.animationDuration = `${Math.random() * 7 + 6}s`;
+    heart.style.animationDelay = `${Math.random() * 5}s`;
+    heart.style.opacity = Math.random() * 0.5 + 0.2;
+    heart.style.background = `rgba(255, ${Math.floor(100 + Math.random() * 80)}, ${Math.floor(130 + Math.random() * 80)}, 0.45)`;
+    
+    // Adjust pseudoelements size
+    heart.style.setProperty('--heart-size', `${size}px`);
+    heartContainer.appendChild(heart);
+    
+    setTimeout(() => {
+      heart.remove();
+    }, 10000);
+  }
+  
+  setInterval(createHeart, 950);
+  for(let i=0;i<12;i++) setTimeout(createHeart, i*400);
+  
+  // ---- Cursor interactive sparkles ----
+  function createSparkle(e) {
+    const spark = document.createElement('div');
+    spark.classList.add('interactive-spark');
+    spark.style.left = `${e.clientX - 6}px`;
+    spark.style.top = `${e.clientY - 6}px`;
+    document.body.appendChild(spark);
+    setTimeout(() => spark.remove(), 800);
+  }
+  
+  document.body.addEventListener('mousemove', (e) => {
+    // throttle sparkle effect
+    if (Math.random() > 0.85) createSparkle(e);
+  });
+  
+  // Touch devices also get gentle sparkles
+  document.body.addEventListener('touchmove', (e) => {
+    if(e.touches) {
+      for(let i=0; i<e.touches.length; i++) {
+        if(Math.random() > 0.8) {
+          const spark = document.createElement('div');
+          spark.classList.add('interactive-spark');
+          spark.style.left = `${e.touches[i].clientX - 6}px`;
+          spark.style.top = `${e.touches[i].clientY - 6}px`;
+          document.body.appendChild(spark);
+          setTimeout(() => spark.remove(), 700);
+        }
+      }
+    }
+  });
+  
+  // ---- proposal interactive features ----
+  const yesButton = document.getElementById('yesBtn');
+  const surpriseBtn = document.getElementById('surpriseBtn');
+  const surprisePanel = document.getElementById('surprisePanel');
+  const displayNameSpan = document.getElementById('displayName');
+  
+  // ask for her name to personalize the proposal
+  let herName = localStorage.getItem('herSpecialName');
+  if (!herName) {
+    let inputName = prompt("What is her beautiful name? (Let me address you just right ❤️)", "My Darling");
+    if (inputName && inputName.trim() !== "") {
+      herName = inputName.trim();
+      localStorage.setItem('herSpecialName', herName);
+    } else {
+      herName = "My Love";
+    }
+  }
+  displayNameSpan.innerText = herName;
+  
+  // also change subtitle or message be more personal dynamic
+  const messageParagraphs = document.querySelectorAll('.message p');
+  if (messageParagraphs.length >= 2) {
+    // subtle integration of name inside quote - make it extra romantic
+    const firstP = messageParagraphs[0];
+    firstP.innerHTML = `My Dearest <span class="her-name">${herName}</span>,`;
+  }
+  
+  // Function to show final proposal acceptance (joyful celebration)
+  function acceptProposal() {
+    // Create intense celebration effect
+    for (let i = 0; i < 45; i++) {
+      setTimeout(() => {
+        const confHeart = document.createElement('div');
+        confHeart.classList.add('heart');
+        confHeart.style.width = `${Math.random() * 26 + 12}px`;
+        confHeart.style.height = confHeart.style.width;
+        confHeart.style.left = `${Math.random() * 100}%`;
+        confHeart.style.animationDuration = `2s`;
+        confHeart.style.opacity = '0.9';
+        confHeart.style.background = `radial-gradient(circle, #ffb3c6, #ff5e8a)`;
+        document.getElementById('heartContainer').appendChild(confHeart);
+        setTimeout(() => confHeart.remove(), 2200);
+      }, i * 70);
+    }
+    
+    // Change the card background glow and make button panel legendary
+    const card = document.getElementById('proposalCard');
+    card.style.animation = 'none';
+    card.style.transform = 'scale(1.02)';
+    card.style.transition = '0.3s';
+    setTimeout(() => { card.style.transform = 'scale(1)'; }, 400);
+    
+    // Change message content to reply acceptance
+    const msgDiv = document.querySelector('.message');
+    msgDiv.innerHTML = `
+      <p style="font-size:1.5rem; margin-bottom:0.5rem;">✨✨✨</p>
+      <p><strong>${herName}</strong>, you just made me the happiest person in the universe! 💖</p>
+      <p>From this moment on, I promise to fill your life with laughter, love, and endless cuddles. You are my today and all of my tomorrows.</p>
+      <p class="quote">“And then my soul saw you and it kind of went, 'Oh, there you are. I've been looking for you.'”</p>
+      <div style="margin-top:12px;">💍🥂 To forever with you, my love 💕</div>
+    `;
+    // change yes button to indicate accepted
+    yesButton.innerText = "💗 Forever Begins Now 💗";
+    yesButton.disabled = true;
+    yesButton.style.opacity = '0.8';
+    yesButton.style.cursor = 'default';
+    // also remove surprise panel if opened or ensure it modifies
+    surprisePanel.classList.remove('show');
+    // Make extra custom floating proposal text and festive
+    const footerEl = document.querySelector('footer');
+    footerEl.innerHTML = `⋆｡°✩ She said YES! ✩°｡⋆  ~  ${new Date().toLocaleDateString()}  ~  Our beautiful beginning ✩°｡⋆`;
+    // additional custom celebration: change title
+    document.title = `💖 Engaged to ${herName} 💖`;
+    // show a sweet alert alternative? instead, gentle toast style but we add a small banner
+    let toastMsg = document.createElement('div');
+    toastMsg.innerText = `❤️ She said YES! ❤️`;
+    toastMsg.style.position = 'fixed';
+    toastMsg.style.bottom = '20px';
+    toastMsg.style.left = '50%';
+    toastMsg.style.transform = 'translateX(-50%)';
+    toastMsg.style.backgroundColor = '#e65c7b';
+    toastMsg.style.color = 'white';
+    toastMsg.style.padding = '12px 28px';
+    toastMsg.style.borderRadius = '60px';
+    toastMsg.style.fontWeight = 'bold';
+    toastMsg.style.zIndex = '999';
+    toastMsg.style.boxShadow = '0 8px 20px rgba(0,0,0,0.2)';
+    toastMsg.style.fontSize = '1.2rem';
+    toastMsg.style.backdropFilter = 'blur(10px)';
+    toastMsg.style.fontFamily = "'Poppins', sans-serif";
+    document.body.appendChild(toastMsg);
+    setTimeout(() => toastMsg.remove(), 4000);
+  }
+  
+  yesButton.addEventListener('click', () => {
+    acceptProposal();
+  });
+  
+  // Surprise button: show hidden romantic message and add a soft effect
+  surpriseBtn.addEventListener('click', () => {
+    surprisePanel.classList.toggle('show');
+    // extra dynamic magic: change text of surprise panel slightly if hidden again
+    if (surprisePanel.classList.contains('show')) {
+      // make it even more personalized
+      const surpriseTitle = surprisePanel.querySelector('h3');
+      if (surpriseTitle) surpriseTitle.innerHTML = `💘 My Promise to You, ${herName} 💘`;
+      const promiseRing = surprisePanel.querySelector('.ring-emoji');
+      if (promiseRing) promiseRing.style.animation = 'sparkle 0.6s infinite alternate';
+      // trigger a small heart rain for the surprise
+      for(let i=0; i<12; i++) {
+        setTimeout(() => createHeart(), i*60);
+      }
+    } else {
+      // if closing, just stop spark extra but not needed
+      const promiseRing = surprisePanel.querySelector('.ring-emoji');
+      if (promiseRing) promiseRing.style.animation = 'sparkle 1.2s infinite alternate';
+    }
+  });
+  
+  // also allow clicking on card to create subtle extra hearts on double click
+  const cardDiv = document.getElementById('proposalCard');
+  cardDiv.addEventListener('dblclick', (e) => {
+    for (let i=0; i<8; i++) {
+      setTimeout(() => {
+        const miniHeart = document.createElement('div');
+        miniHeart.classList.add('heart');
+        miniHeart.style.width = '18px';
+        miniHeart.style.height = '18px';
+        miniHeart.style.left = `${e.clientX - 30 + Math.random() * 60}px`;
+        miniHeart.style.top = `${e.clientY - 30 + Math.random() * 60}px`;
+        miniHeart.style.position = 'fixed';
+        miniHeart.style.animation = 'floatUp 1.2s ease-out';
+        miniHeart.style.pointerEvents = 'none';
+        document.body.appendChild(miniHeart);
+        setTimeout(() => miniHeart.remove(), 1200);
+      }, i*30);
+    }
+  });
+  
+  // final extra: update the promise date to today's date romantic text
+  const dateSpan = document.getElementById('datePromise');
+  const today = new Date();
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const formattedDate = today.toLocaleDateString(undefined, options);
+  dateSpan.innerHTML = `✧ ${formattedDate} ✧  ~  The day I ask you to be my forever  ~ ✧`;
+  
+  // additional interactive: If user clicks on the rose icon it plays a tiny romance effect
+  const roseIcon = document.querySelector('.rose-icon');
+  roseIcon.addEventListener('click', () => {
+    const msgs = ["🌹 You are my rose garden.", "💞 Every petal whispers your name.", "✨ My love for you blooms endlessly."];
+    const randomMsg = msgs[Math.floor(Math.random() * msgs.length)];
+    let floatingMsg = document.createElement('div');
+    floatingMsg.innerText = randomMsg;
+    floatingMsg.style.position = 'fixed';
+    floatingMsg.style.bottom = '40%';
+    floatingMsg.style.left = '50%';
+    floatingMsg.style.transform = 'translateX(-50%)';
+    floatingMsg.style.backgroundColor = '#f6ceda';
+    floatingMsg.style.padding = '8px 16px';
+    floatingMsg.style.borderRadius = '40px';
+    floatingMsg.style.fontWeight = '500';
+    floatingMsg.style.color = '#ae3e60';
+    floatingMsg.style.fontSize = '0.9rem';
+    floatingMsg.style.zIndex = '1000';
+    floatingMsg.style.whiteSpace = 'nowrap';
+    floatingMsg.style.fontFamily = "'Poppins', sans-serif";
+    floatingMsg.style.boxShadow = '0 2px 14px rgba(0,0,0,0.1)';
+    document.body.appendChild(floatingMsg);
+    setTimeout(() => floatingMsg.remove(), 1700);
+    for(let i=0;i<5;i++) setTimeout(createHeart, i*80);
+  });
+  
+  // initial greeting console romantic (for the dev part, not invasive)
+  console.log("%c✨ You are about to witness true love magic ✨", "color: #dd6688; font-size: 16px; font-weight: bold;");
+</script>
+</body>
+</html>
